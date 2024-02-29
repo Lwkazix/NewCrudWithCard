@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<style>
+    .navbar{
+        margin-left: 27px;
+        padding: 10px;
+        width: 1200px;
+    }
+    .header{
+        justify-content: space-around;
+        padding: 5px;
+    }
+    body{
+        background-color: rgb(237, 182, 237);
+    }
+    #carouselExampleCaptions{
+        width: 1000px;
+        height: 650px;
+        display: flex;
+        margin-left: 170px;
+        margin-top: 30px;
+    }
+    #navbarSupportedContent{
+      font-family: 'Caviar Dreams', sans-serif;
+        font-size: 20px;
+        padding: 10px;
+        justify-content: space-evenly;
+    }
+    .img{
+        width: 1000px;
+    }
+    .insta{
+
+        width: 100px;
+        margin-left: 200px;
+    }
+    .insta:hover i {
+        translate: (-42.8814 18.4418);
+        rotate:(78.6806);
+        scale: (113.412 467.488);
+    }
+    .youtube{
+        color: red;
+        width: 100px;
+        margin-left: 1px;
+    }
+    .whats{
+        color: green;
+        width: 100px;
+        margin-left: 1px;
+    }
+    .icons {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding: 10px;
+    }
+    .icons div {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .icons i, .icons svg {
+        font-size: 24px;
+        margin: 5px;
+    }
+    h1{
+        font-family: "Brush Script MT", cursive;
+        font-size: 100px;
+        color: purple;
+        margin-left: 430px;
+        width: 500px;
+        align-items: center;
+    }
+    .h1n1{
+      width: 1500px;
+      background-color: white;
+    }
+    img{
+      width: 100px;
+      height: 200px;
+
+    }
+    .cont{
+      margin-left: 70px;
+      margin-top: 30px;
+      width: 1200px;
+      padding: auto;
+      display: flex;
+      justify-content: space-around;
+    }
+    .card{
+      border: 4px solid black;
+      border-radius: 15px;
+      text-align: center;
+    }
+    .card-title{
+      font-family: "Brush Script MT", cursive;
+      font-size: 30px;
+      color: purple;
+    }
+</style>
+<div class="h1n1">
+
+    <h1>Taylor's Scent</h1>
+</div>
+<div class="navbar">
+    <header class="header">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Perfumes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Essências</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Sabão</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Sabonetes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Óleos</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search" action="#" th:href="@{/homeCard/searchCard}" method="get">
+                        <input class="form-control me-2" type="search" placeholder="Procurar" aria-label="Search" name="query">
+                        <button class="btn btn-outline-success" type="submit" >Pesquisar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container cont">
+        <div class="row">
+            <!-- Itera sobre a lista de cards e cria um card para cada um -->
+            <div class="col-md-4" th:each="cards : ${cardsNew}">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{'/images/' + ${cards.imageFile}}" class="card-img-top" alt="Imagem do Card">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${cards.tittle}">Título Padrão</h5>
+                        <p class="card-text" th:text="${cards.txt}">Texto Padrão</p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<body>
+</body>
+</html>
